@@ -27,7 +27,7 @@ describe('Catalogue item page', () => {
 
 	it('should assert that the imported markdown file is working', () => {
 		cy.request(
-			'https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-research-bank/main/catalog-contribution.md'
+			'https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-ml-web-catalog/main/catalog-contribution.md'
 		)
 	})
 })

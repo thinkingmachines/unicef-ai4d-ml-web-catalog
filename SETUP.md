@@ -39,11 +39,14 @@ which node  //checks current node version
 3. Activate [corepack to install pnpm](https://pnpm.io/installation#using-corepack)
 
 > For Ubuntu
+
 ```
 corepack enable
 corepack prepare pnpm@latest --activate
 ```
+
 > For MacOS
+
 ```
 brew install corepack
 corepack prepare pnpm@latest --activate
@@ -51,11 +54,13 @@ corepack prepare pnpm@latest --activate
 
 > If both do not work and you have a node version beyond 18.04
 > you can try manually installing pnpm via npm (Ubuntu/MacOS)
+
 ```
 npm install -g pnpm
-````
+```
 
 > If it still doesn't work for macOS, try manually installing pnpm through homebrew
+
 ```
 brew install pnpm
 ```
@@ -63,8 +68,8 @@ brew install pnpm
 4. Fork the project and install project dependencies
 
 ```
-git clone git@github.com:thinkingmachines/unicef-ai4d-research-bank.git
-cd unicef-ai4d-research-bank
+git clone git@github.com:thinkingmachines/unicef-ai4d-ml-web-catalog.git
+cd unicef-ai4d-ml-web-catalog
 pnpm install
 
 ```
@@ -72,14 +77,14 @@ pnpm install
 5. Create `.env.local` based from the `.env.sample` file. Update the `VITE_HOME_PATH` to use the new project name
 
 ```
-// env.local for a forked project with the name "unicef-ai4d-research-bank-external"
+// env.local for a forked project with the name "unicef-ai4d-ml-web-catalog-external"
 
-VITE_HOME_PATH=/unicef-ai4d-research-bank-external
+VITE_HOME_PATH=/unicef-ai4d-ml-web-catalog-external
 ```
 
-6. Update all instances of the original project name `unicef-ai4d-research-bank` in `vite.config.ts`, `cypress.config.ts`, `.env.github`, and `package.json` to your newly forked project name. Image below shows an example for a new project with the name `unicef-ai4d-research-bank-external`
+6. Update all instances of the original project name `unicef-ai4d-ml-web-catalog` in `vite.config.ts`, `cypress.config.ts`, `.env.github`, and `package.json` to your newly forked project name. Image below shows an example for a new project with the name `unicef-ai4d-ml-web-catalog-external`
 
-![Update to new name](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-research-bank/main/assets/vite-cypress-path-update.png)
+![Update to new name](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-ml-web-catalog/main/assets/vite-cypress-path-update.png)
 
 7. Install a python virtual environment. You can use [virtualenv](https://virtualenv.pypa.io/en/latest/) for this.
 
@@ -111,26 +116,26 @@ Forking the project will copy all the build and deploy scripts, but you will nee
 
 1. Create a `DEPLOY_PAT` secret via `https://github.com/settings/tokens` with repo and workflow permissions and place it in `your_forked_repo->settings->Secrets and Variables->Actions`
 
-![genrate token](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-research-bank/main/assets/generate-token.png)
+![genrate token](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-ml-web-catalog/main/assets/generate-token.png)
 
-![new-token-settings](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-research-bank/main/assets/new-token-settings.png)
+![new-token-settings](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-ml-web-catalog/main/assets/new-token-settings.png)
 
-![your-secret-here](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-research-bank/main/assets/your-secret-here.png)
+![your-secret-here](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-ml-web-catalog/main/assets/your-secret-here.png)
 
-![secrets-and-variables](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-research-bank/main/assets/secrets-and-variables.png)
+![secrets-and-variables](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-ml-web-catalog/main/assets/secrets-and-variables.png)
 
 - This will allow the github actions runner to run some of the build actions which normally require authentication
 
 2. Go to `your_repo->actions` and run `Deploy-GH-Pages`. This will create a new branch called `gh-pages` where the compiled website will reside.
 
-![workflows](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-research-bank/main/assets/workflows.png)
-![run-workflow](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-research-bank/main/assets/run-workflow.png)
+![workflows](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-ml-web-catalog/main/assets/workflows.png)
+![run-workflow](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-ml-web-catalog/main/assets/run-workflow.png)
 
 3. Go to `repo->settings->code and automation->pages` and update the following settings:
 
    a. Change `Build and Deployment` source to `deploy from a branch`. Note that you can also find the actual link to the deployed website here
 
-   ![deploy-from-branch](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-research-bank/main/assets/deploy-from-branch.png)
+   ![deploy-from-branch](https://raw.githubusercontent.com/thinkingmachines/unicef-ai4d-ml-web-catalog/main/assets/deploy-from-branch.png)
 
    b. Set the deploy branch to be `gh-pages` branch `/(root)` directory
    c. Run the `pages-build-deployment` workflow in order for github to deploy the site
